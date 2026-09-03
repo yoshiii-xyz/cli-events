@@ -1,0 +1,3 @@
+{"schema_version":1,"sequence":1,"timestamp_unix_ms":1000,"event":"command.started","argv":["printf","hello"],"cwd":"/tmp","pid":123}
+{"schema_version":1,"sequence":2,"timestamp_unix_ms":1001,"event":"command.output","stream":"stdout","text":"hello"}
+{"schema_version":1,"sequence":3,"timestamp_unix_ms":1002,"event":"command.finished","status":"success","exit_code":0,"cancelled":false}
