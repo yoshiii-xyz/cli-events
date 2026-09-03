@@ -12,6 +12,18 @@ cli-events validate event-stream.jsonl
 cli-events summarize event-stream.jsonl
 ```
 
+Target users are maintainers of local build tools, test tools, task runners,
+and coding-agent integrations that need machine-readable process evidence.
+
+Current alternatives include parsing terminal text, consuming tool-specific
+JSON formats, or embedding a custom process wrapper in every integration.
+Those alternatives vary in field names, often mix stdout and stderr, and do
+not consistently state cancellation or size behavior.
+
+The switching wedge is a small stable event shape plus a reference runner that
+can be adopted without adopting a task scheduler, hosted service, or shell
+implementation.
+
 The protocol has three event types:
 
 - `command.started` records argv, the working directory, and process ID.
@@ -32,3 +44,9 @@ default timeout and accepts a bounded timeout override.
 This is a protocol and reference runner, not a general task runner. It does
 not schedule multiple commands, provide a daemon, upload data, or define a
 hosted event service.
+
+Evidence and inference are separate. The Rust process and JSON documentation
+linked in [`docs/research.md`](research.md) support the implementation
+constraints. The statements about integration weaknesses and the switching
+wedge are product inferences from the narrow protocol brief, not measured
+market claims.

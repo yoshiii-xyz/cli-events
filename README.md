@@ -33,6 +33,20 @@ Task runners, build tools, test tools, and coding agents can consume one
 small, documented event shape without parsing human-oriented terminal output.
 The MVP only covers one local command and a JSON Lines file or stdout stream.
 
+## How it works
+
+The runner starts one child process with stdout and stderr pipes. Reader
+threads send bounded chunks to one queue, and the main process assigns
+sequence numbers in receive order. Validation checks the schema, event order,
+required fields, and resource limits. Summary output excludes volatile process
+fields so the same stream produces the same result.
+
+## Commands and library API
+
+The CLI provides `run`, `validate`, and `summarize`. The library exposes
+`run_command`, `parse_event_line`, `validate_stream`, and `summarize_stream`.
+Use `cli-events --help` for the complete option list.
+
 ## Output and exit codes
 
 - Exit code 0 means `validate` or `summarize` accepted the stream.

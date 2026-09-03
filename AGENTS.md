@@ -3,6 +3,9 @@
 This repository is a focused Rust project. The product brief and CI workflow
 are authoritative.
 
+Read `docs/design.md` for the data model, `docs/limits.md` for supported
+boundaries, and `docs/release.md` for release evidence.
+
 ## Commands
 
 - Build: `cargo build --locked`
@@ -18,6 +21,14 @@ are authoritative.
 Keep changes limited to the versioned CLI event protocol and small reference
 runner. Do not add frontend code, hosted services, cloud backends, telemetry,
 or unrelated compatibility promises.
+
+## Operating loop
+
+1. Plan the change and define a measurable success condition.
+2. Make only scoped edits.
+3. Read back every changed file.
+4. Run the relevant validation commands and record exact results.
+5. Review the diff before committing or pushing.
 
 ## Safety
 
