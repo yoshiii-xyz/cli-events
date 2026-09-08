@@ -5,7 +5,7 @@ edition = "2024"
 rust-version = "1.85"
 description = "A bounded JSON Lines protocol and reference runner for CLI execution events"
 license = "MIT"
-repository = "https://github.com/joshiii-xyz/cli-events"
+repository = "https://github.com/yoshiii-xyz/cli-events"
 keywords = ["cli", "events", "jsonl", "process", "observability"]
 categories = ["command-line-utilities", "development-tools"]
 
